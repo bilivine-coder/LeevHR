@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeevHR — Every Year You Wait, You Write Off $1.4M</title>
+<meta name="description" content="LeevHR is a 12-month exit-readiness system that builds the enterprise value a buyer actually pays for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@400;450;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF7F0;
+    --cream-warm:#F5EFE4;
+    --alabaster:#FDFBF6;
+    --white:#FFFFFF;
+    --ink:#2E2836;
+    --ink-soft:#4A3F54;
+    --mauve:#8B7D77;
+    --mauve-soft:#A89890;
+    --bronze:#B8763E;
+    --bronze-deep:#8F5726;
+    --bronze-pale:#E8D2B3;
+    --sage:#7A9B7E;
+    --clay:#B5654A;
+    --alarm:#C1362B;
+    --alarm-deep:#8E1E15;
+    --alarm-pale:#F4D9D4;
+    --line:rgba(139,125,119,.16);
+    --line-strong:rgba(139,125,119,.28);
+    --shadow-sm:0 1px 2px rgba(74,63,84,.04), 0 2px 8px rgba(74,63,84,.04);
+    --shadow-md:0 2px 6px rgba(74,63,84,.06), 0 12px 32px rgba(74,63,84,.06);
+    --shadow-lg:0 8px 24px rgba(74,63,84,.08), 0 32px 64px rgba(74,63,84,.08);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono:'JetBrains Mono','Courier New',monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+  body{
+    background:var(--cream);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;font-weight:450;
+  }
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .narrow{max-width:720px;margin:0 auto}
+
+  /* ============ LOGO ============ */
+  .logo{
+    display:flex;align-items:center;gap:11px;text-decoration:none;
+    font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.03em;
+    color:var(--ink);flex:0 0 auto;
+  }
+  .logo-mark{flex:0 0 auto;display:block}
+  .logo-word .leev{color:var(--ink-soft)}
+  .logo-word .hr{color:var(--bronze-deep)}
+
+  /* ============ NAV ============ */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:18px 0;transition:.4s cubic-bezier(.16,1,.3,1);
+    background:transparent;
+  }
+  nav.scrolled{
+    background:rgba(250,247,240,.85);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);padding:12px 0;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .nav-links{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+  .nav-links a{
+    font-size:14.5px;font-weight:500;color:var(--mauve);text-decoration:none;
+    padding:9px 16px;border-radius:100px;transition:.25s;white-space:nowrap;
+    letter-spacing:-.005em;
+  }
+  .nav-links a:hover{color:var(--ink);background:rgba(232,210,179,.35)}
+  .nav-cta{
+    font-size:14px;font-weight:600;color:var(--white);
+    background:var(--bronze-deep);padding:11px 22px;border-radius:100px;
+    text-decoration:none;transition:.28s cubic-bezier(.16,1,.3,1);white-space:nowrap;
+    flex:0 0 auto;letter-spacing:-.01em;
+    box-shadow:0 2px 8px rgba(143,87,38,.18);
+  }
+  .nav-cta:hover{background:var(--bronze);transform:translateY(-1px);box-shadow:0 6px 20px rgba(143,87,38,.25)}
+
+  /* ============ BUTTONS ============ */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    font-family:var(--sans);font-size:16.5px;font-weight:600;letter-spacing:-.01em;
+    background:var(--bronze-deep);color:var(--white);
+    padding:18px 36px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+    transition:.28s cubic-bezier(.16,1,.3,1);
+    box-shadow:0 2px 6px rgba(143,87,38,.14), 0 12px 32px rgba(143,87,38,.14);
+  }
+  .btn:hover{background:var(--bronze);transform:translateY(-2px);box-shadow:0 4px 12px rgba(143,87,38,.2), 0 20px 48px rgba(143,87,38,.2)}
+  .btn .arw{transition:transform .28s ease}
+  .btn:hover .arw{transform:translateX(4px)}
+
+  .btn-alarm{
+    background:var(--alarm-deep);color:var(--white);
+    box-shadow:0 2px 6px rgba(142,30,21,.2), 0 12px 32px rgba(142,30,21,.2);
+  }
+  .btn-alarm:hover{background:var(--alarm);box-shadow:0 4px 12px rgba(142,30,21,.25), 0 20px 48px rgba(142,30,21,.3)}
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;padding:150px 0 90px;
+    background:
+      radial-gradient(ellipse 60% 45% at 20% 0%, rgba(232,210,179,.55), transparent 60%),
+      radial-gradient(ellipse 45% 35% at 95% 15%, rgba(244,217,212,.5), transparent 65%),
+      linear-gradient(180deg, var(--alabaster) 0%, var(--cream) 100%);
+    overflow:hidden;
+  }
+  .hero-inner{position:relative;z-index:2}
+
+  /* ALARM TICKER */
+  .alarm-ticker{
+    display:inline-flex;align-items:center;gap:14px;
+    background:var(--alarm-deep);color:var(--white);
+    padding:11px 22px 11px 18px;border-radius:100px;margin-bottom:36px;
+    font-family:var(--mono);font-size:12.5px;font-weight:600;
+    letter-spacing:.06em;
+    box-shadow:0 4px 20px rgba(142,30,21,.28);
+    animation:alarmPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes alarmPulse{
+    0%,100%{box-shadow:0 4px 20px rgba(142,30,21,.28)}
+    50%{box-shadow:0 4px 32px rgba(142,30,21,.55)}
+  }
+  .alarm-dot{
+    width:9px;height:9px;border-radius:50%;background:#fff;flex:0 0 auto;
+    animation:alarmDot 1.4s ease-in-out infinite;
+  }
+  @keyframes alarmDot{0%,100%{opacity:1}50%{opacity:.25}}
+  .alarm-count{
+    font-family:var(--mono);font-weight:700;color:#fff;
+    display:inline-block;min-width:52px;
+  }
+
+  /* HEADLINE — IDENTITY ATTACK */
+  h1{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(38px,5.6vw,66px);
+    line-height:1.06;letter-spacing:-.03em;color:var(--ink);
+    margin-bottom:28px;max-width:19ch;
+  }
+  h1 em{font-style:italic;font-weight:400;color:var(--bronze-deep)}
+  h1 .attack{
+    color:var(--alarm-deep);font-weight:600;font-style:italic;
+    position:relative;display:inline-block;
+  }
+  h1 .attack::after{
+    content:'';position:absolute;left:0;right:0;bottom:6px;height:8px;
+    background:rgba(244,217,212,.85);border-radius:2px;z-index:-1;
+  }
+
+  .hero-sub{
+    font-size:19px;line-height:1.65;color:var(--ink-soft);
+    margin-bottom:36px;max-width:600px;font-weight:450;
+  }
+  .hero-sub strong{color:var(--ink);font-weight:600}
+  .hero-sub .alarm-text{color:var(--alarm-deep);font-weight:600}
+
+  .hero-cta{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+  .micro{
+    font-size:14px;color:var(--mauve);
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+  }
+  .micro svg{opacity:.7;flex:0 0 auto}
+
+  /* THE LEAK COUNTER */
+  .leak-bar{
+    margin-top:56px;padding:36px 40px;
+    background:var(--white);
+    border:2px solid var(--alarm-deep);
+    border-radius:22px;
+    box-shadow:0 24px 60px rgba(142,30,21,.12);
+    display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .leak-bar::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:4px;
+    background:repeating-linear-gradient(90deg,var(--alarm-deep) 0 12px,transparent 12px 20px);
+    opacity:.4;
+  }
+  .leak-left .leak-eyebrow{
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--alarm-deep);
+    margin-bottom:10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .leak-left .leak-eyebrow::before{
+    content:'';width:8px;height:8px;border-radius:50%;background:var(--alarm-deep);
+    animation:alarmDot 1.4s ease-in-out infinite;
+  }
+  .leak-left .leak-desc{
+    font-size:15px;color:var(--ink-soft);line-height:1.5;max-width:420px;
+  }
+  .leak-right{text-align:right;flex:0 0 auto}
+  .leak-right .leak-num{
+    font-family:var(--serif);font-size:clamp(40px,5vw,58px);
+    font-weight:600;letter-spacing:-.04em;color:var(--alarm-deep);line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .leak-right .leak-lbl{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--mauve);
+    margin-top:10px;
+  }
+
+  /* ============ SECTIONS ============ */
+  section{padding:110px 0;position:relative}
+  .section-head{margin-bottom:56px}
+  .section-head.center{text-align:center;max-width:700px;margin-left:auto;margin-right:auto}
+  .eyebrow{
+    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mauve-soft);margin-bottom:20px;
+  }
+  .eyebrow.alarm{color:var(--alarm-deep)}
+  h2{
+    font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.2vw,48px);
+    line-height:1.1;letter-spacing:-.025em;color:var(--ink);margin-bottom:22px;
+  }
+  h2 em{font-style:italic;font-weight:400;color:var(--bronze-deep)}
+  h2 .alarm-em{font-style:italic;font-weight:600;color:var(--alarm-deep)}
+  h3{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:-.015em;margin-bottom:12px;color:var(--ink)}
+  .lead{font-size:18px;line-height:1.7;color:var(--ink-soft);font-weight:450}
+
+  /* ============ IDENTITY HIT SECTION ============ */
+  .identity{
+    background:var(--ink);color:var(--cream);
+    padding:100px 0;position:relative;overflow:hidden;
+  }
+  .identity::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:4px;
+    background:var(--alarm);
+  }
+  .identity::after{
+    content:'';position:absolute;top:-200px;right:-200px;
+    width:600px;height:600px;
+    background:radial-gradient(circle,rgba(193,54,43,.18),transparent 60%);
+    pointer-events:none;
+  }
+  .identity .wrap{position:relative;z-index:2}
+  .identity-inner{max-width:900px;margin:0 auto;text-align:center}
+  .identity-label{
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    letter-spacing:.24em;text-transform:uppercase;color:var(--alarm);
+    display:inline-flex;align-items:center;gap:14px;margin-bottom:36px;
+  }
+  .identity-label::before,
+  .identity-label::after{
+    content:'';width:36px;height:1px;background:var(--alarm);
+  }
+  .identity h2{
+    color:var(--cream);font-size:clamp(32px,4.6vw,52px);
+    letter-spacing:-.028em;line-height:1.15;margin-bottom:28px;
+  }
+  .identity h2 em{color:var(--bronze-pale);font-style:italic}
+  .identity h2 .red{color:var(--alarm);font-style:italic;font-weight:600}
+  .identity p{
+    color:rgba(250,247,240,.75);font-size:18px;line-height:1.7;
+    max-width:620px;margin:0 auto;
+  }
+  .identity p strong{color:var(--cream);font-weight:600}
+
+  /* ============ TRAP — 4 CARDS ============ */
+  .trap-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+  }
+  .trap-card{
+    background:var(--white);border:1px solid var(--line);border-radius:22px;
+    padding:38px 34px;position:relative;overflow:hidden;
+    transition:.35s cubic-bezier(.16,1,.3,1);
+  }
+  .trap-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--line-strong)}
+  .trap-card::before{
+    content:'';position:absolute;top:0;left:0;bottom:0;width:4px;
+    background:var(--alarm);opacity:.85;
+  }
+  .trap-icon{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--alarm-pale);color:var(--alarm-deep);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;margin-bottom:24px;font-weight:700;
+  }
+  .trap-card h3{
+    font-family:var(--serif);font-size:21px;font-weight:600;
+    letter-spacing:-.02em;color:var(--ink);margin-bottom:14px;line-height:1.3;
+  }
+  .trap-card p{
+    font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin-bottom:22px;
+  }
+  .trap-card p strong{color:var(--alarm-deep);font-weight:600}
+  .trap-cost{
+    padding-top:20px;border-top:1px solid var(--line);
+    display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  }
+  .trap-cost-lbl{
+    font-family:var(--mono);font-size:10.5px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--mauve-soft);
+  }
+  .trap-cost-val{
+    font-family:var(--serif);font-size:26px;font-weight:600;
+    letter-spacing:-.025em;color:var(--alarm-deep);
+  }
+
+  /* ============ VALUE GAP — VISUAL FIGHT ============ */
+  .gap-wrap{
+    background:var(--white);border:1px solid var(--line);border-radius:26px;
+    padding:64px 56px;box-shadow:var(--shadow-md);
+    position:relative;overflow:hidden;
+  }
+  .gap-wrap::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--mauve-soft) 0%, var(--mauve-soft) 50%, var(--bronze) 50%, var(--bronze) 100%);
+    opacity:.55;
+  }
+  .gap-head{text-align:center;margin-bottom:64px}
+  .gap-head h3{
+    font-family:var(--serif);font-size:clamp(24px,3vw,34px);font-weight:500;
+    letter-spacing:-.025em;color:var(--ink);margin-bottom:12px;line-height:1.2;
+  }
+  .gap-head h3 em{font-style:italic;color:var(--alarm-deep);font-weight:600}
+  .gap-head p{font-family:var(--mono);font-size:12.5px;color:var(--mauve);letter-spacing:.06em}
+
+  .gap-body{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;
+    align-items:end;position:relative;
+    min-height:540px;
+  }
+  .col{display:flex;flex-direction:column;height:100%}
+  .col-tag{
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    margin-bottom:32px;text-align:center;
+    padding:8px 16px;border-radius:100px;display:inline-block;align-self:center;
+  }
+  .col-tag.bad{color:var(--mauve);background:rgba(139,125,119,.1)}
+  .col-tag.good{color:var(--bronze-deep);background:rgba(232,210,179,.5)}
+
+  .col-bar{width:100%;position:relative;display:flex;flex-direction:column;justify-content:flex-end;flex:1}
+  .col-bar-fill{
+    width:100%;height:0;
+    transition:height 1.4s cubic-bezier(.16,1,.3,1);
+    position:relative;
+  }
+  .col-bar-fill .val{
+    position:absolute;top:-56px;left:0;right:0;text-align:center;
+    font-family:var(--serif);font-size:46px;font-weight:600;
+    letter-spacing:-.04em;line-height:1;
+  }
+  .col-bar-fill.bad .val{color:var(--mauve)}
+  .col-bar-fill.good .val{color:var(--bronze-deep)}
+  .col-bar-fill .fill{width:100%;height:100%}
+  .col-bar-fill.bad .fill{
+    background:repeating-linear-gradient(135deg, rgba(139,125,119,.22) 0 10px, rgba(139,125,119,.1) 10px 20px);
+    border:1px solid rgba(139,125,119,.3);
+    border-top:none;
+  }
+  .col-bar-fill.good .fill{
+    background:linear-gradient(180deg, var(--bronze) 0%, var(--bronze-deep) 100%);
+    box-shadow:0 -8px 32px rgba(143,87,38,.3);
+  }
+
+  .col-meta{
+    padding-top:22px;border-top:1px solid var(--line);
+    display:grid;gap:12px;margin-top:24px;
+  }
+  .col-meta-row{display:grid;grid-template-columns:1fr auto;gap:16px;font-size:14px}
+  .col-meta-row .k{font-size:13px;font-weight:500;color:var(--mauve);letter-spacing:-.005em}
+  .col-meta-row .v{font-family:var(--serif);font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .col.bad .col-meta-row .v{color:var(--mauve)}
+  .col.good .col-meta-row .v{color:var(--bronze-deep)}
+
+  .gap-callout{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    text-align:center;pointer-events:none;z-index:3;
+  }
+  .gap-num{
+    font-family:var(--serif);font-size:clamp(36px,4.6vw,56px);font-weight:600;
+    letter-spacing:-.04em;color:var(--alarm-deep);line-height:1;
+    background:var(--white);padding:16px 28px;border-radius:16px;
+    display:inline-block;border:2px solid var(--alarm-deep);
+    box-shadow:0 16px 40px rgba(142,30,21,.14);
+  }
+  .gap-lbl{
+    font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--alarm-deep);background:var(--white);
+    padding:6px 14px;margin-top:8px;display:inline-block;border-radius:100px;
+    border:1px solid var(--alarm-deep);
+  }
+
+  .gap-foot{
+    text-align:center;margin-top:64px;padding-top:40px;
+    border-top:1px solid var(--line);
+  }
+  .gap-foot p{
+    font-family:var(--serif);font-style:italic;font-weight:500;
+    font-size:clamp(20px,2.4vw,26px);line-height:1.4;
+    letter-spacing:-.02em;color:var(--ink);max-width:680px;margin:0 auto;
+  }
+  .gap-foot p em{color:var(--alarm-deep);font-weight:700;font-style:italic}
+
+  /* ============ SYSTEM — 3 CARDS ============ */
+  .system{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .phase-card{
+    background:var(--white);border:1px solid var(--line);border-radius:22px;
+    padding:38px 34px;transition:.35s cubic-bezier(.16,1,.3,1);
+    display:flex;flex-direction:column;
+  }
+  .phase-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+  .pc-step{
+    font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--bronze-deep);margin-bottom:22px;
+  }
+  .pc-icon{
+    width:52px;height:52px;border-radius:14px;
+    background:linear-gradient(140deg, rgba(232,210,179,.7), rgba(245,239,228,.8));
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:24px;font-size:22px;color:var(--bronze-deep);
+  }
+  .phase-card h3{margin-bottom:14px;font-size:22px}
+  .phase-card p{font-size:15.5px;line-height:1.65;color:var(--mauve);flex:1;font-weight:450}
+  .phase-card p b{color:var(--ink-soft);font-weight:500}
+  .pc-out{
+    margin-top:24px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:14px;color:var(--bronze-deep);font-weight:600;letter-spacing:-.005em;
+  }
+
+  /* ============ LIVE DEMO — THE DECAY ============ */
+  .decay{
+    background:var(--white);border:1px solid var(--line);border-radius:26px;
+    overflow:hidden;box-shadow:var(--shadow-md);
+  }
+  .decay-head{
+    padding:32px 40px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,var(--cream-warm),var(--white));
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  }
+  .decay-title{
+    display:flex;align-items:center;gap:14px;
+  }
+  .decay-title .live-dot{
+    width:10px;height:10px;border-radius:50%;background:var(--alarm-deep);
+    animation:alarmDot 1.4s infinite;flex:0 0 auto;
+  }
+  .decay-title-text{
+    font-family:var(--mono);font-size:12px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--alarm-deep);
+  }
+  .decay-sub{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;
+    letter-spacing:.06em;color:var(--mauve);
+  }
+
+  .decay-body{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    min-height:500px;
+  }
+
+  .decay-side{
+    padding:48px 44px;
+    display:flex;flex-direction:column;
+    position:relative;
+  }
+  .decay-side.bad{background:linear-gradient(180deg, rgba(193,54,43,.05), rgba(193,54,43,.02));border-right:1px solid var(--line)}
+  .decay-side.good{background:linear-gradient(180deg, rgba(184,118,62,.06), rgba(184,118,62,.02))}
+
+  .decay-tag{
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    letter-spacing:.18em;text-transform:uppercase;
+    margin-bottom:28px;align-self:flex-start;
+    padding:7px 14px;border-radius:100px;
+  }
+  .decay-tag.bad{color:var(--alarm-deep);background:var(--alarm-pale)}
+  .decay-tag.good{color:var(--bronze-deep);background:rgba(232,210,179,.55)}
+
+  .decay-headline{
+    font-family:var(--serif);font-size:clamp(22px,2.6vw,28px);
+    font-weight:500;letter-spacing:-.02em;line-height:1.25;
+    color:var(--ink);margin-bottom:32px;
+  }
+  .decay-headline em{font-style:italic;color:var(--alarm-deep);font-weight:600}
+  .decay-headline.good em{color:var(--bronze-deep)}
+
+  .decay-rows{display:grid;gap:0;flex:1}
+  .decay-row{
+    display:grid;grid-template-columns:auto 1fr auto;gap:16px;
+    padding:16px 0;align-items:center;
+    border-bottom:1px solid var(--line);
+  }
+  .decay-row:last-child{border-bottom:none}
+  .decay-ico{
+    width:32px;height:32px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:800;flex:0 0 auto;
+  }
+  .decay-side.bad .decay-ico{background:var(--alarm-pale);color:var(--alarm-deep)}
+  .decay-side.good .decay-ico{background:rgba(232,210,179,.55);color:var(--bronze-deep)}
+  .decay-lbl{font-size:14.5px;font-weight:500;color:var(--ink-soft);letter-spacing:-.005em}
+  .decay-val{
+    font-family:var(--serif);font-size:15px;font-weight:600;
+    letter-spacing:-.015em;white-space:nowrap;
+  }
+  .decay-side.bad .decay-val{color:var(--alarm-deep)}
+  .decay-side.good .decay-val{color:var(--bronze-deep)}
+
+  .decay-num-block{
+    margin-top:32px;padding-top:28px;border-top:2px solid var(--ink);
+    display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;
+  }
+  .decay-side.bad .decay-num-block{border-top-color:var(--alarm-deep)}
+  .decay-side.good .decay-num-block{border-top-color:var(--bronze-deep)}
+  .decay-bignum{
+    font-family:var(--serif);font-size:clamp(48px,6vw,68px);
+    font-weight:600;line-height:1;letter-spacing:-.045em;flex:0 0 auto;
+  }
+  .decay-side.bad .decay-bignum{color:var(--alarm-deep)}
+  .decay-side.good .decay-bignum{color:var(--bronze-deep)}
+  .decay-cap{
+    font-size:14px;line-height:1.45;color:var(--mauve);flex:1;min-width:120px;
+  }
+  .decay-cap b{display:block;color:var(--ink);font-weight:600;font-size:15.5px;margin-bottom:2px}
+
+  /* ============ CASES ============ */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .case{
+    background:var(--white);border:1px solid var(--line);border-radius:22px;
+    padding:38px 34px;display:flex;flex-direction:column;
+    transition:.35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;
+  }
+  .case:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--line-strong)}
+  .case::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--bronze-pale),var(--bronze));
+  }
+  .case-mark{
+    font-family:var(--mono);font-size:11px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;
+    color:var(--bronze-deep);margin-bottom:24px;
+  }
+  .case-stat{
+    font-family:var(--serif);font-size:38px;font-weight:600;line-height:1;
+    letter-spacing:-.03em;color:var(--ink);margin-bottom:8px;
+  }
+  .case-stat em{font-style:italic;font-size:.52em;color:var(--bronze-deep);font-weight:500;margin-left:3px}
+  .case-lbl{
+    font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--mauve-soft);margin-bottom:26px;padding-bottom:22px;
+    border-bottom:1px solid var(--line);
+  }
+  .case-quote{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:17px;line-height:1.55;color:var(--ink-soft);
+    margin-bottom:26px;flex:1;
+  }
+  .case-who{display:flex;align-items:center;gap:13px;padding-top:22px;border-top:1px solid var(--line)}
+  .case-avatar{
+    width:42px;height:42px;border-radius:50%;flex:0 0 auto;
+    background:linear-gradient(140deg,var(--bronze-pale),var(--bronze));
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;color:var(--white);letter-spacing:-.02em;
+  }
+  .case-name{font-size:15px;font-weight:600;color:var(--ink);line-height:1.2;letter-spacing:-.01em}
+  .case-loc{font-size:13px;color:var(--mauve-soft);margin-top:3px}
+
+  /* ============ FIT ============ */
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .fit-box{border-radius:22px;padding:40px 38px;border:1px solid var(--line)}
+  .fit-yes{background:var(--white);border-color:rgba(232,210,179,.8)}
+  .fit-no{background:var(--cream-warm)}
+  .fit-box h3{
+    font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    margin-bottom:28px;font-family:var(--sans);
+  }
+  .fit-yes h3{color:var(--bronze-deep)}
+  .fit-no h3{color:var(--mauve-soft)}
+  .fit-list{list-style:none;display:grid;gap:16px}
+  .fit-list li{display:flex;gap:14px;font-size:16px;line-height:1.55;align-items:flex-start;font-weight:450}
+  .fit-yes .fit-list li{color:var(--ink-soft)}
+  .fit-no .fit-list li{color:var(--mauve)}
+  .fit-list li b{color:var(--ink);font-weight:600}
+  .fit-no .fit-list li b{color:var(--ink-soft);font-weight:500}
+  .mark{flex:0 0 auto;font-size:15px;margin-top:3px;font-weight:700}
+  .fit-yes .mark{color:var(--bronze-deep)}
+  .fit-no .mark{color:var(--mauve-soft)}
+
+  /* ============ FAQ ============ */
+  .faq{border-top:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line)}
+  summary{
+    list-style:none;cursor:pointer;padding:28px 48px 28px 0;
+    font-family:var(--serif);font-size:20px;font-weight:500;
+    letter-spacing:-.015em;color:var(--ink);position:relative;transition:.25s;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary:hover{color:var(--bronze-deep)}
+  summary::after{
+    content:'+';position:absolute;right:6px;top:50%;transform:translateY(-50%);
+    font-family:var(--sans);font-size:24px;font-weight:300;color:var(--mauve-soft);transition:.3s;
+  }
+  details[open] summary::after{transform:translateY(-50%) rotate(45deg);color:var(--bronze-deep)}
+  details p{
+    padding:0 64px 30px 0;font-size:16px;color:var(--mauve);
+    line-height:1.7;max-width:680px;font-weight:450;
+  }
+  details p b{color:var(--ink-soft);font-weight:600}
+
+  /* ============ FINAL ============ */
+  .final{
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(244,217,212,.5), transparent 65%),
+      linear-gradient(180deg, var(--cream) 0%, var(--alabaster) 100%);
+    text-align:center;padding:120px 0 110px;
+    border-top:1px solid var(--line);
+  }
+  .final h2{max-width:18ch;margin:0 auto 24px;font-size:clamp(32px,4.6vw,54px)}
+  .final .lead{max-width:540px;margin:0 auto 44px}
+  .seats{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:12px;font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;
+    color:var(--alarm-deep);
+    background:var(--alarm-pale);
+    border:1px solid rgba(193,54,43,.3);
+    padding:10px 22px;border-radius:100px;margin-bottom:34px;
+  }
+  .seats-dot{width:7px;height:7px;border-radius:50%;background:var(--alarm-deep);animation:alarmDot 1.4s infinite}
+
+  .ps{
+    margin-top:48px;font-size:15.5px;color:var(--mauve);max-width:580px;
+    margin-left:auto;margin-right:auto;line-height:1.75;text-align:left;
+    border-left:3px solid var(--bronze-pale);padding-left:24px;font-weight:450;
+  }
+  .ps b{color:var(--ink-soft);font-weight:600}
+  .ps .alarm{color:var(--alarm-deep);font-weight:600}
+
+  .embed-shell{
+    margin-top:64px;background:var(--white);border-radius:24px;padding:8px;
+    max-width:820px;margin-left:auto;margin-right:auto;
+    box-shadow:var(--shadow-lg);border:1px solid var(--line);
+  }
+  .embed-shell iframe{border-radius:18px;display:block}
+
+  /* ============ FOOTER ============ */
+  footer{padding:48px 0;border-top:1px solid var(--line);background:var(--alabaster);}
+  .footer-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    gap:20px;flex-wrap:wrap;font-size:14px;color:var(--mauve);
+  }
+  footer a{color:var(--mauve);text-decoration:none;transition:.2s}
+  footer a:hover{color:var(--bronze-deep)}
+
+  /* ============ REVEAL ============ */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:1020px){
+    .nav-links{gap:0}
+    .nav-links a{padding:9px 11px;font-size:13.5px}
+    .trap-grid{grid-template-columns:1fr}
+    .gap-wrap{padding:44px 32px}
+    .gap-body{grid-template-columns:1fr;gap:72px;min-height:auto}
+    .gap-callout{position:static;transform:none;margin:24px 0;text-align:center}
+  }
+  @media(max-width:900px){
+    .nav-links{display:none}
+    .system{grid-template-columns:1fr}
+    .cases{grid-template-columns:1fr}
+    .fit{grid-template-columns:1fr}
+    .decay-body{grid-template-columns:1fr}
+    .decay-side.bad{border-right:none;border-bottom:1px solid var(--line)}
+    .leak-bar{grid-template-columns:1fr;gap:24px;text-align:left}
+    .leak-right{text-align:left}
+  }
+  @media(max-width:640px){
+    body{font-size:16px}
+    .hero{padding:120px 0 70px}
+    section{padding:76px 0}
+    .wrap{padding:0 20px}
+    .gap-wrap{padding:32px 22px}
+    .btn{width:100%;padding:17px 24px}
+    .case-stat{font-size:32px}
+    .col-bar-fill .val{font-size:36px;top:-44px}
+    .gap-num{font-size:32px;padding:12px 20px}
+    summary{font-size:18px;padding-right:38px}
+    details p{padding-right:20px;font-size:15.5px}
+    .decay-side{padding:32px 24px}
+    .leak-bar{padding:28px 24px}
+    .alarm-ticker{font-size:11px;padding:9px 16px}
+    .trap-card{padding:32px 26px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
+        <defs>
+          <linearGradient id="leevArch" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#E8D2B3"/>
+            <stop offset="100%" stop-color="#B8763E"/>
+          </linearGradient>
+        </defs>
+        <path d="M 6 29 L 6 14 A 10 10 0 0 1 26 14 L 26 29" fill="none" stroke="#4A3F54" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="18" r="4" fill="url(#leevArch)"/>
+        <line x1="3" y1="29" x2="29" y2="29" stroke="#8F5726" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-word"><span class="leev">Leev</span><span class="hr">HR</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#trap">The Trap</a>
+      <a href="#gap">The Gap</a>
+      <a href="#decay">The Decay</a>
+      <a href="#system">The System</a>
+      <a href="#cases">Cases</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="https://calendly.com/automations-inquiry" target="_blank" rel="noopener" class="nav-cta">Book Your Exit Call</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+
+    <!-- ALARM TICKER -->
+    <div class="alarm-ticker">
+      <span class="alarm-dot"></span>
+      Since you opened this page, you've lost&nbsp;<span class="alarm-count" id="leakLive">$0</span>&nbsp;in exit value
+    </div>
+
+    <!-- IDENTITY ATTACK HEADLINE -->
+    <h1>
+      You're not building an asset.<br>
+      You're building <span class="attack">the most expensive job</span> you'll ever have.
+    </h1>
+
+    <p class="hero-sub">
+      LeevHR is a <strong>12-month exit-readiness system</strong> that pulls you out of the operating chair, installs the leadership bench, and builds the enterprise value a buyer actually pays for. <span class="alarm-text">Every year you wait, you write off seven figures.</span> So when you decide to sell, the number reflects what you built — <strong>not what you settled for.</strong>
+    </p>
+
+    <div class="hero-cta">
+      <a href="https://calendly.com/automations-inquiry" target="_blank" rel="noopener" class="btn btn-alarm">
+        Stop the Bleed — Book Your Exit Call <span class="arw">→</span>
+      </a>
+      <div class="micro">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+        30 minutes · We map your value gap before we talk price
+      </div>
+    </div>
+
+    <!-- LIVE LEAK BAR -->
+    <div class="leak-bar reveal">
+      <div class="leak-left">
+        <div class="leak-eyebrow">Compounding loss — live</div>
+        <div class="leak-desc">While you're reading this page, the gap between what your firm is worth today and what it could be worth exit-ready keeps growing. Every day you wait, it grows by ~$3,800.</div>
+      </div>
+      <div class="leak-right">
+        <div class="leak-num" id="leakBig">$1,386,000</div>
+        <div class="leak-lbl">Written off this year</div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= IDENTITY HIT ================= -->
+<section class="identity">
+  <div class="wrap">
+    <div class="identity-inner reveal">
+      <div class="identity-label">The question no broker will ask you</div>
+      <h2>If you disappeared tomorrow,<br>what would your firm be worth <em class="red">by Friday?</em></h2>
+      <p>
+        Not what you'd get if you stayed. Not what you'd get if you spent six months transitioning. <strong>What it would be worth on day five, without you in the room.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE TRAP ================= -->
+<section id="trap">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow alarm">The trap</div>
+      <h2>The better you are, the harder you are to <em class="alarm-em">replace.</em></h2>
+      <p class="lead" style="max-width:640px;margin:0 auto">And the harder you are to replace, the less your firm is worth to anyone but you. Every year this compounds.</p>
+    </div>
+
+    <div class="trap-grid">
+      <div class="trap-card reveal">
+        <div class="trap-icon">01</div>
+        <h3>Every relationship runs through you</h3>
+        <p>Top clients know your cell. Top candidates take your calls. <strong>Nothing happens at your firm without your fingerprints on it.</strong></p>
+        <div class="trap-cost">
+          <div class="trap-cost-lbl">Cost to your exit</div>
+          <div class="trap-cost-val">-2.5×</div>
+        </div>
+      </div>
+
+      <div class="trap-card reveal">
+        <div class="trap-icon">02</div>
+        <h3>You've built a job, not an asset</h3>
+        <p>You're paid well — but you're paid for the work you do. <strong>The moment you stop doing it, so does the money.</strong></p>
+        <div class="trap-cost">
+          <div class="trap-cost-lbl">Enterprise value</div>
+          <div class="trap-cost-val">$0</div>
+        </div>
+      </div>
+
+      <div class="trap-card reveal">
+        <div class="trap-icon">03</div>
+        <h3>Every broker tells you the same thing</h3>
+        <p>"We'll get you 3×, maybe 4×." Because they can see it: <strong>without you, there's no business for the buyer to run.</strong></p>
+        <div class="trap-cost">
+          <div class="trap-cost-lbl">Multiple you're offered</div>
+          <div class="trap-cost-val">3.2×</div>
+        </div>
+      </div>
+
+      <div class="trap-card reveal">
+        <div class="trap-icon">04</div>
+        <h3>You've already waited too long once</h3>
+        <p>Every year of delay is another year of margin you keep, and <strong>enterprise value you don't build.</strong> The gap compounds. So does the regret.</p>
+        <div class="trap-cost">
+          <div class="trap-cost-lbl">Cost of one year of delay</div>
+          <div class="trap-cost-val">$1.4M</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE GAP ================= -->
+<section id="gap" style="background:var(--cream-warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow alarm">The gap</div>
+      <h2>Same firm. <em class="alarm-em">Two exit numbers.</em></h2>
+      <p class="lead" style="max-width:640px;margin:0 auto">Same revenue. Same clients. Same EBITDA. One is what you'll be offered. The other is what you could be paid.</p>
+    </div>
+
+    <div class="gap-wrap reveal">
+      <div class="gap-head">
+        <h3>Every year you stay the bottleneck, <em>you write off seven figures.</em></h3>
+        <p>A $12M firm with $2.4M EBITDA — same as it is today</p>
+      </div>
+
+      <div class="gap-body">
+
+        <div class="col bad">
+          <div class="col-tag bad">What you'll be offered</div>
+          <div class="col-bar">
+            <div class="col-bar-fill bad" data-h="180">
+              <div class="val">$7.7M</div>
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="col-meta">
+            <div class="col-meta-row"><div class="k">Multiple</div><div class="v">3.2×</div></div>
+            <div class="col-meta-row"><div class="k">Buyer pool</div><div class="v">Small</div></div>
+            <div class="col-meta-row"><div class="k">Due diligence</div><div class="v">Brutal</div></div>
+            <div class="col-meta-row"><div class="k">Your role after</div><div class="v">Locked in 3 years</div></div>
+          </div>
+        </div>
+
+        <div class="col good">
+          <div class="col-tag good">What you could be paid</div>
+          <div class="col-bar">
+            <div class="col-bar-fill good" data-h="480">
+              <div class="val">$20.4M</div>
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="col-meta">
+            <div class="col-meta-row"><div class="k">Multiple</div><div class="v">8.5×</div></div>
+            <div class="col-meta-row"><div class="k">Buyer pool</div><div class="v">Competitive</div></div>
+            <div class="col-meta-row"><div class="k">Due diligence</div><div class="v">Clean</div></div>
+            <div class="col-meta-row"><div class="k">Your role after</div><div class="v">Optional</div></div>
+          </div>
+        </div>
+
+        <div class="gap-callout">
+          <div class="gap-num">$12.7M</div>
+          <div class="gap-lbl">You're walking away from</div>
+        </div>
+
+      </div>
+
+      <div class="gap-foot">
+        <p>Read that number again. <em>$12.7 million.</em><br>The difference isn't luck. It's twelve months of work you haven't started.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIVE DECAY DEMO ================= -->
+<section id="decay">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">The decay</div>
+      <h2>This is happening to your firm <em>right now.</em></h2>
+      <p class="lead" style="max-width:640px;margin:0 auto">Two firms. Same revenue. Same week. Watch what happens when the founder is still in the chair.</p>
+    </div>
+
+    <div class="decay reveal">
+      <div class="decay-head">
+        <div class="decay-title">
+          <span class="live-dot"></span>
+          <span class="decay-title-text">Live value tracking</span>
+        </div>
+        <div class="decay-sub">Q4 FY — 90 days</div>
+      </div>
+
+      <div class="decay-body">
+        <div class="decay-side bad">
+          <div class="decay-tag bad">You — today</div>
+          <div class="decay-headline">Founder still in the chair. <em>Everything runs through you.</em></div>
+
+          <div class="decay-rows">
+            <div class="decay-row">
+              <div class="decay-ico">✕</div>
+              <div class="decay-lbl">Top client relationship</div>
+              <div class="decay-val">You only</div>
+            </div>
+            <div class="decay-row">
+              <div class="decay-ico">✕</div>
+              <div class="decay-lbl">Key candidate pipeline</div>
+              <div class="decay-val">Your calls</div>
+            </div>
+            <div class="decay-row">
+              <div class="decay-ico">✕</div>
+              <div class="decay-lbl">Pricing decisions</div>
+              <div class="decay-val">Your gut</div>
+            </div>
+            <div class="decay-row">
+              <div class="decay-ico">✕</div>
+              <div class="decay-lbl">Second-in-command</div>
+              <div class="decay-val">Doesn't exist</div>
+            </div>
+            <div class="decay-row">
+              <div class="decay-ico">✕</div>
+              <div class="decay-lbl">Documented systems</div>
+              <div class="decay-val">In your head</div>
+            </div>
+          </div>
+
+          <div class="decay-num-block">
+            <div class="decay-bignum">3.2×</div>
+            <div class="decay-cap"><b>Multiple a buyer will offer</b>because the firm doesn't run without you</div>
+          </div>
+        </div>
+
+        <div class="decay-side good">
+          <div class="decay-tag good">You — 12 months in</div>
+          <div class="decay-headline good">Founder optional. <em>The firm runs the firm.</em></div>
+
+          <div class="decay-rows">
+            <div class="decay-row">
+              <div class="decay-ico">✓</div>
+              <div class="decay-lbl">Top client relationships</div>
+              <div class="decay-val">Owned by COO</div>
+            </div>
+            <div class="decay-row">
+              <div class="decay-ico">✓</div>
+              <div class="decay-lbl">Key candidate pipeline</div>
+              <div class="decay-val">Team-managed</div>
+            </div>
+            <div class="decay-row">
+              <div class="decay-ico">✓</div>
+              <div class="decay-lbl">Pricing decisions</div>
+              <div class="decay-val">Framework-driven</div>
+            </div>
+            <div class="decay-row">
+              <div class="decay-ico">✓</div>
+              <div class="decay-lbl">Second-in-command</div>
+              <div class="decay-val">In place, trained</div>
+            </div>
+            <div class="decay-row">
+              <div class="decay-ico">✓</div>
+              <div class="decay-lbl">Documented systems</div>
+              <div class="decay-val">Everywhere</div>
+            </div>
+          </div>
+
+          <div class="decay-num-block">
+            <div class="decay-bignum">8.5×</div>
+            <div class="decay-cap"><b>Multiple a buyer will pay</b>because the firm runs without you</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SYSTEM ================= -->
+<section id="system">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">The system</div>
+      <h2>Twelve months. <em>Three moves. One number.</em></h2>
+      <p class="lead" style="max-width:640px;margin:0 auto">Built around the questions a buyer's due diligence team will ask. Answered before they ask them.</p>
+    </div>
+
+    <div class="system">
+      <div class="phase-card reveal">
+        <div class="pc-step">Month 1–3 · Extract</div>
+        <div class="pc-icon">◐</div>
+        <h3>We pull you out of the chair</h3>
+        <p>We sit inside your firm and map every relationship, decision, and judgment that currently runs through you. <b>The invisible system in your head — written down.</b></p>
+        <div class="pc-out">→ Your firm, finally documented</div>
+      </div>
+
+      <div class="phase-card reveal">
+        <div class="pc-step">Month 4–9 · Build</div>
+        <div class="pc-icon">◑</div>
+        <h3>We install the bench</h3>
+        <p>A COO, a delivery lead, a senior recruiter who owns client relationships — <b>trained on your judgment, paid to stay, accountable for outcomes.</b></p>
+        <div class="pc-out">→ A team a buyer can bet on</div>
+      </div>
+
+      <div class="phase-card reveal">
+        <div class="pc-step">Month 10–12 · Prove</div>
+        <div class="pc-icon">◒</div>
+        <h3>We make the value undeniable</h3>
+        <p>Twelve months of clean numbers and reduced founder dependency. <b>Diligence opens the books and finds a machine</b> — not a Rolodex.</p>
+        <div class="pc-out">→ An exit number that reflects what you built</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASES ================= -->
+<section id="cases">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Case studies</div>
+      <h2>Founders who took the <em>long way to a better number.</em></h2>
+    </div>
+
+    <div class="cases">
+      <div class="case reveal">
+        <div class="case-mark">Stockholm · 14 months</div>
+        <div class="case-stat">3.1→8.2<em>×</em></div>
+        <div class="case-lbl">Multiple, founder to exit-ready</div>
+        <p class="case-quote">I thought I was building a business. I was building a job with my name on the door. Two years into LeevHR I could take a six-week holiday and nothing moved. That was the moment I knew it would sell.</p>
+        <div class="case-who">
+          <div class="case-avatar">LE</div>
+          <div>
+            <div class="case-name">Lars Eriksen</div>
+            <div class="case-loc">🇸🇪 Sweden</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case reveal">
+        <div class="case-mark">Dubai · Enterprise value</div>
+        <div class="case-stat">+$18<em>M</em></div>
+        <div class="case-lbl">Gained vs. the first offer</div>
+        <p class="case-quote">Three brokers told me my firm was worth 4× at best. LeevHR spent a year proving them wrong. We closed at 7.9×, with two buyers bidding. Same firm. Same team. Different architecture.</p>
+        <div class="case-who">
+          <div class="case-avatar">FA</div>
+          <div>
+            <div class="case-name">Farah Al-Mansour</div>
+            <div class="case-loc">🇦🇪 UAE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case reveal">
+        <div class="case-mark">São Paulo · Founder earn-out</div>
+        <div class="case-stat">6→2<em>yrs</em></div>
+        <div class="case-lbl">Lock-in, reduced from</div>
+        <p class="case-quote">The buyer originally wanted me locked in for six years. After the year we spent building the bench, they dropped it to two — because the firm didn't need me anymore. That's the freedom I was actually paying for.</p>
+        <div class="case-who">
+          <div class="case-avatar">RC</div>
+          <div>
+            <div class="case-name">Rafael Costa</div>
+            <div class="case-loc">🇧🇷 Brazil</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FIT ================= -->
+<section id="fit">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Be honest with yourself</div>
+      <h2>This isn't for everyone.</h2>
+    </div>
+
+    <div class="fit">
+      <div class="fit-box fit-yes reveal">
+        <h3>Built for you if</h3>
+        <ul class="fit-list">
+          <li><span class="mark">✓</span><span>You're somewhere between <b>"I'm tired" and "I'm done"</b></span></li>
+          <li><span class="mark">✓</span><span>You've had at least one conversation with a <b>broker, buyer, or PE firm</b></span></li>
+          <li><span class="mark">✓</span><span>The firm runs on <b>your relationships</b> — and you know it</span></li>
+          <li><span class="mark">✓</span><span>You want the exit to <b>fund the next chapter</b> of your life</span></li>
+          <li><span class="mark">✓</span><span>You can commit <b>12 months</b> to build real enterprise value</span></li>
+        </ul>
+      </div>
+
+      <div class="fit-box fit-no reveal">
+        <h3>Not for you if</h3>
+        <ul class="fit-list">
+          <li><span class="mark">✕</span><span>You need <b>cash in 90 days</b> — this is a build, not a rescue</span></li>
+          <li><span class="mark">✕</span><span>You want a <b>broker</b>, not a builder</span></li>
+          <li><span class="mark">✕</span><span>You're not willing to <b>change how the firm runs</b></span></li>
+          <li><span class="mark">✕</span><span>You're happy <b>running this forever</b> — that's a valid choice</span></li>
+          <li><span class="mark">✕</span><span>You <b>can't hand off a single relationship</b> — not even as an experiment</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <div class="eyebrow">The objections you're already having</div>
+      <h2>Answered honestly.</h2>
+    </div>
+
+    <div class="faq narrow reveal">
+      <details open>
+        <summary>"I'm not selling for years. Why start now?"</summary>
+        <p>Because the number is <b>built before the conversation</b>, not during it. Every broker's first question is "how does this run without you?" You either have a one-word answer or you spend 12 months creating one. <b>The founder who starts two years early exits at 8×. The one who starts three months early exits at 3×</b> — and calls it a market problem.</p>
+      </details>
+
+      <details>
+        <summary>"Doesn't this just make me replaceable — and cut me out?"</summary>
+        <p>It makes you <b>optional, not irrelevant.</b> The opposite of being a bottleneck isn't being fired — it's being free. Buyers pay more for firms where the founder can walk away, because the risk of them doing exactly that is priced in. Right now, that risk is <b>the single biggest discount on your enterprise value.</b></p>
+      </details>
+
+      <details>
+        <summary>"How is this different from a broker or M&amp;A advisor?"</summary>
+        <p>A broker sells the firm you have today. LeevHR <b>builds the firm a buyer wants to buy.</b> Different job entirely. We don't find you a buyer — we make the number a buyer will pay a different figure altogether. Most brokers will tell you the same thing: come back in two years, and come back with this done.</p>
+      </details>
+
+      <details>
+        <summary>"What if I decide not to sell at the end?"</summary>
+        <p>Then you own a firm that runs without you, <b>pays you more, and gives you your life back.</b> That's not a consolation prize — for many founders it's the actual goal. The exit-readiness work is valuable whether you sell or not. That's the point.</p>
+      </details>
+
+      <details>
+        <summary>"How long before the numbers move?"</summary>
+        <p>Leadership bench in place by <b>month 6</b>. Founder dependency materially reduced by <b>month 9</b>. Full enterprise-value re-rate visible by <b>month 12–14</b>. If we can't show measurable movement by month 6, we tell you and you can stop.</p>
+      </details>
+
+      <details>
+        <summary>"What does it cost?"</summary>
+        <p>We don't quote before the exit-readiness call, because the scope depends on what's actually there. <b>Get on the call and we'll tell you straight</b> — including if the answer is no.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section class="final">
+  <div class="wrap">
+    <div class="seats reveal">
+      <span class="seats-dot"></span>
+      4 exit-readiness calls per month · non-competing markets only
+    </div>
+
+    <h2 class="reveal">The best exit is the one you had <em>time to build.</em></h2>
+
+    <p class="lead reveal">
+      Every year you wait is a year the gap gets wider. <strong>Every year you build is a year the number gets bigger.</strong>
+    </p>
+
+    <div class="reveal">
+      <a href="https://calendly.com/automations-inquiry" target="_blank" rel="noopener" class="btn btn-alarm">
+        Stop the Bleed — Book Your Exit Call <span class="arw">→</span>
+      </a>
+      <div class="micro" style="margin-top:20px;justify-content:center">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+        30 minutes · You leave with your value-gap map either way
+      </div>
+    </div>
+
+    <div class="ps reveal">
+      <b>P.S.</b> — If you already know which client relationship only works because it's <span class="alarm">you on the call</span>, that's the discount a buyer will find first. The call just makes it visible — and gives it a number.
+    </div>
+
+    <div class="embed-shell reveal">
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/automations-inquiry?hide_gdpr_banner=1&primary_color=8f5726"
+           style="min-width:320px;height:680px;"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div style="display:flex;align-items:center;gap:11px">
+      <svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true">
+        <path d="M 6 29 L 6 14 A 10 10 0 0 1 26 14 L 26 29" fill="none" stroke="#4A3F54" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="18" r="4" fill="#B8763E"/>
+        <line x1="3" y1="29" x2="29" y2="29" stroke="#8F5726" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span style="color:var(--ink-soft);font-weight:700;letter-spacing:-.03em">Leev</span>
+      <span style="color:var(--bronze-deep);font-weight:700;letter-spacing:-.03em">HR</span>
+      <span style="color:var(--mauve)">· Exit-Readiness System</span>
+    </div>
+    <div>
+      <a href="https://calendly.com/automations-inquiry" target="_blank" rel="noopener">Book a call</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  function onScroll(){
+    if(window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e, i){
+        if(e.isIntersecting){
+          setTimeout(function(){ e.target.classList.add('in'); }, Math.min(i * 70, 300));
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ============ LIVE LEAK COUNTERS ============ */
+  // Slow ticker for the pill: starts at 0, ticks up fast to feel alive
+  var pillEl = document.getElementById('leakLive');
+  var bigEl = document.getElementById('leakBig');
+  if(pillEl){
+    var pillStart = Date.now();
+    var pillRatePerSec = 87.6; // ~$7.5M/year = ~$87.6/sec across all firms reading
+    function fmt(n){
+      return '$' + Math.floor(n).toLocaleString('en-US');
+    }
+    function tickPill(){
+      var elapsed = (Date.now() - pillStart) / 1000;
+      pillEl.textContent = fmt(elapsed * pillRatePerSec);
+      requestAnimationFrame(tickPill);
+    }
+    tickPill();
+  }
+  // Big number: starts at $1,386,000 and increments slowly to feel like a live annual counter
+  if(bigEl){
+    var bigBase = 1386000;
+    var bigStart = Date.now();
+    var bigRatePerSec = 3.8; // $3.8/sec = ~$3,800/day-ish visual
+    function fmtBig(n){
+      return '$' + Math.floor(n).toLocaleString('en-US');
+    }
+    function tickBig(){
+      var elapsed = (Date.now() - bigStart) / 1000;
+      bigEl.textContent = fmtBig(bigBase + elapsed * bigRatePerSec);
+      requestAnimationFrame(tickBig);
+    }
+    tickBig();
+  }
+
+  /* ============ GAP BARS ============ */
+  var barsAnimated = false;
+  function animateBars(){
+    var fills = document.querySelectorAll('.col-bar-fill[data-h]');
+    fills.forEach(function(f){
+      var h = f.getAttribute('data-h');
+      f.style.height = '0px';
+      requestAnimationFrame(function(){
+        setTimeout(function(){ f.style.height = h + 'px'; }, 120);
+      });
+    });
+  }
+  if('IntersectionObserver' in window){
+    var barObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting && !barsAnimated){
+          barsAnimated = true;
+          animateBars();
+          barObs.disconnect();
+        }
+      });
+    }, {threshold:0.2});
+    var compEl = document.querySelector('.gap-body');
+    if(compEl) barObs.observe(compEl);
+  } else {
+    animateBars();
+  }
+})();
+</script>
+
+</body>
+</html>
